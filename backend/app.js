@@ -1,17 +1,15 @@
-const express =  require("express");
-const app =  express();
-const errorMiddleware = require('./middleware/error')
+const express = require("express");
+const app = express();
+const errorMiddleware = require("./middleware/error");
 app.use(express.json());
 
-
-//ROute ports
+//Route ports
 const product = require("./routes/productRoute");
-const user = require("./routes/userRoute")
+const user = require("./routes/userRoute");
 app.use("/api/v1", product);
-app.use("/api/v1", user)
+app.use("/api/v1", user);
 
 //MiddleWare For error
-app.use(errorMiddleware)
-
+app.use(errorMiddleware);
 
 module.exports = app;
